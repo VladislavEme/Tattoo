@@ -1,4 +1,28 @@
-header {
+.header {
   height: 96px;
   background-color: black;
+  padding: 36px 150px 36px 150px;
+  margin-bottom: 30px;
+
+  .nav {
+    &__list {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__item {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    &__link {
+      color: white;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: #2235D1;
+        transition: color 0.2s ease-in-out;
+      }
+    }
+  }
 }

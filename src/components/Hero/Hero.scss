@@ -1,0 +1,49 @@
+.container {
+  margin: auto 150px;
+}
+
+.hero {
+  background-image: url(../../assets/img/lineBlue.png);
+  background-repeat: no-repeat;
+  background-position-y: -23px;
+  display: flex;
+  flex-direction: column;
+
+  &__title-block {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-size: 128px;
+    font-weight: 400;
+  }
+
+  &__span {
+    position: absolute;
+    top: 120px;
+    left: 700px;
+    font-size: 36px;
+    color: #2235d1;
+    font-weight: 300;
+
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__img-braille {
+    margin-bottom: 56px;
+  }
+
+  &__button-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,26 +1,19 @@
 import React from "react";
 import "./Header.scss";
 
-export const Header = () => {
+export const Header: React.FC = () => {
+  const navItem = ["Обо мне", "Работы", "Цены", "Важное", "Контакты"];
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="#">Обо мне</a>
-          </li>
-          <li>
-            <a href="#">Работы</a>
-          </li>
-          <li>
-            <a href="#">Цены</a>
-          </li>
-          <li>
-            <a href="#">Важное</a>
-          </li>
-          <li>
-            <a href="#">Контакты</a>
-          </li>
+    <header className="header">
+      <nav className="header__nav">
+        <ul className="nav__list">
+          {navItem.map((navItemName, i) => (
+            <li className="nav__item" key={i}>
+              <a className="nav__link" href="#">
+                {navItemName}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

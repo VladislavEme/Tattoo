@@ -1,0 +1,30 @@
+.button {
+  width: 280px;
+  height: 78px;
+  color: #2235D1;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  background-color: white;
+  position: relative;
+  border: 2px solid #000;
+  border-radius: 50%;
+
+  &::before {
+    content: "";
+    width: 274px;
+    height: 72px;
+    border: 2px solid #2235D1;
+    border-radius: 50%;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    transform: rotate(-10deg);
+    transition: 0.2s ease-in-out transform;
+  }
+
+  &:hover::before {
+    transform: rotate(0);
+    transition: 0.2s ease-in-out transform;
+  }
+}
