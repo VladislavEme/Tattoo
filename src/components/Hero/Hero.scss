@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Pierson";
+  src: local("Pierson"),
+    url("../../assets/fonts/Pierson_Font/PiersonDemo-400.woff2") format("woff2"),
+    url("../../assets/fonts/Pierson_Font/PiersonDemo-400.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 .container {
   margin: auto 150px;
 }
@@ -8,8 +18,8 @@
   background-position-y: -23px;
   display: flex;
   flex-direction: column;
-
   animation: hero 1.2s ease-in-out;
+  margin-bottom: 100px;
 
   @keyframes hero {
     0% {
@@ -39,7 +49,7 @@
 
     @keyframes title {
       0% {
-        transform: translateY(100%);
+        transform: translateY(-100%);
       }
 
       100% {
@@ -49,6 +59,7 @@
   }
 
   &__title {
+    font-family: Pierson;
     font-size: 128px;
     font-weight: 400;
     position: relative;
@@ -59,7 +70,7 @@
       content: "";
       position: absolute;
       left: -20px;
-      top: 5px;
+      top: -10px;
       width: 32px;
       height: 48px;
       background-image: url(../../assets/img/hero/star.svg);
@@ -68,7 +79,7 @@
 
   &__span {
     position: absolute;
-    top: 117px;
+    top: 102px;
     left: 713px;
     font-size: 36px;
     color: #2235d1;
