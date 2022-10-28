@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "Pierson";
+    src: local("Pierson"),
+        url("../../assets/fonts/Pierson_Font/PiersonDemo-400.woff2") format("woff2"),
+        url("../../assets/fonts/Pierson_Font/PiersonDemo-400.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+.title {
+    overflow: hidden;
+
+    &__content {
+        &-wrapper {
+            display: flex;
+            position: relative;
+            font-size: 96px;
+            font-weight: 400;
+            color: transparent;
+            width: 150%;
+            -webkit-text-stroke: 1px black;
+            line-height: 102px;
+
+            span {
+                font-family: Pierson;
+            }
+        }
+
+        &-top {
+            left: 32px;
+            margin-bottom: 10px;
+            animation: titleTop 1.2s ease;
+        }
+
+        &-bottom {
+            left: -305px;
+            margin-bottom: 35px;
+            animation: titleBottom 1.2s ease;
+        }
+
+        &-blue {
+            color: #2235D1;
+            -webkit-text-stroke: 0px;
+        }
+    }
+}
