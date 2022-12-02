@@ -1,4 +1,4 @@
-import { Title } from '../Title/Title';
+import { Title } from '../../Title/Title';
 import './MyWorks.scss';
 
 export const MyWorks: React.FC = () => {

@@ -1,16 +1,13 @@
 import React from 'react';
-import { Title } from '../Title/Title';
-import { Button } from '../Button/Button';
 import { Header } from '../Header/Header';
-import { Hero } from '../Hero/Hero';
+import { Hero } from '../Sections/Hero/Hero';
 import './App.scss';
-import { AboutMe } from '../AboutMe/AboutMe';
-import { MyWorks } from '../MyWorks/MyWorks';
+import { AboutMe } from '../Sections/AboutMe/AboutMe';
+import { MyWorks } from '../Sections/MyWorks/MyWorks';
 
 function App() {
   return (
-    // убрать боди
-    <div className="wrapper">
+    <div className='wrapper'>
       <Header />
       <main>
         <Hero />

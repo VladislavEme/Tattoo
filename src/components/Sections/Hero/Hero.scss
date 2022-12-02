@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Pierson";
   src: local("Pierson"),
-    url("../../assets/fonts/Pierson_Font/PiersonDemo-400.woff2") format("woff2"),
-    url("../../assets/fonts/Pierson_Font/PiersonDemo-400.woff") format("woff");
+    url("../../../assets/fonts/Pierson_Font/PiersonDemo-400.woff2") format("woff2"),
+    url("../../../assets/fonts/Pierson_Font/PiersonDemo-400.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -13,13 +13,12 @@
 }
 
 .hero {
-  background: url(../../assets/img/hero/lineBlue.png) -140px -230px;
+  background: url(../../../assets/img/hero/lineBlue.png) -140px -230px;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   animation: hero 1.2s ease-in-out;
-  // margin-bottom: 100px;
 
   @keyframes hero {
     0% {
@@ -32,11 +31,10 @@
   }
 
   &__container {
-    background-image: url(../../assets/img/hero/spotBlue.png);
+    background-image: url(../../../assets/img/hero/spotBlue.png);
     background-repeat: no-repeat;
     background-size: 490px 600px;
     background-position: 460px 135px;
-
   }
 
   &__title-block {
@@ -45,17 +43,6 @@
     align-items: center;
     flex-direction: column;
     margin-bottom: 40px;
-    animation: title 1.2s ease-in-out;
-
-    @keyframes title {
-      0% {
-        transform: translateY(-100%);
-      }
-
-      100% {
-        transform: translateY(0);
-      }
-    }
   }
 
   &__title {
@@ -64,8 +51,6 @@
     font-weight: 400;
     position: relative;
 
-
-
     &::before {
       content: "";
       position: absolute;
@@ -73,7 +58,7 @@
       top: -10px;
       width: 32px;
       height: 48px;
-      background-image: url(../../assets/img/hero/star.svg);
+      background-image: url(../../../assets/img/hero/star.svg);
     }
   }
 
@@ -84,7 +69,6 @@
     font-size: 36px;
     color: #2235d1;
     font-weight: 300;
-
   }
 
   &__content {
@@ -94,57 +78,13 @@
     overflow: hidden;
   }
 
-  &__img-face {
-    animation: face 1.2s ease-in-out;
-
-    @keyframes face {
-      0% {
-        transform: translateX(-150%);
-      }
-
-      100% {
-        transform: translateX(0);
-      }
-    }
-  }
-
-  &__img-moking {
-    animation: moking 1.2s ease-in-out;
-
-    @keyframes moking {
-      0% {
-        opacity: 0;
-        transform: translateY(-150%);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
-
   &__img-braille {
     margin-bottom: 56px;
-
   }
 
   &__button-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: braille 1.2s ease-in-out;
-
-    @keyframes braille {
-      0% {
-        opacity: 0;
-        transform: translateX(150%);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
   }
 }
