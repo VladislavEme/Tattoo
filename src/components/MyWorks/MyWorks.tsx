@@ -13,7 +13,7 @@ export const MyWorks: React.FC = () => {
         <ul className='works__list'>
           {myWorks.map((item, i) => (
             <li className='works__item' key={i}>
-              <a onClick={() => clickWorks(item)} className='works__link'>
+              <a onClick={() => clickWorks(item)} className='works__link' href='#'>
                 {item}
               </a>
             </li>

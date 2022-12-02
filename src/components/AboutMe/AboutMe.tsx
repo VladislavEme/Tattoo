@@ -1,11 +1,11 @@
 import './AboutMe.scss';
 import { Title } from '../Title/Title';
 import fotoSelf from '../../assets/img/aboutMe/fotoSelf.png';
-import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 
 export const AboutMe: React.FC = () => {
   return (
-    <Fade>
+    <Fade triggerOnce>
       <section className="about-me">
         <div className="about-me__basic">
           <h2 className="about-me__title">
@@ -13,10 +13,10 @@ export const AboutMe: React.FC = () => {
           </h2>
           <div className="container">
             <div className="about-me__content">
-              <Fade left>
+              <Fade direction='left' triggerOnce>
                 <img className="about-me__foto-self" src={fotoSelf} alt="Моя фотография" />
               </Fade>
-              <Fade right>
+              <Fade direction='right' triggerOnce>
                 <div className="about-me__text">
                   <p>Привет, я Полина, твой тату-мастер.</p>
                   <p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Title.scss';
-import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 
 interface TitleType {
   title: string;
@@ -13,7 +13,7 @@ export const Title: React.FC<TitleType> = ({ title, color, row }) => {
   return (
     <section className="title">
       <div className="title__container">
-        <Fade right>
+        <Fade direction='left' triggerOnce>
           <div className="title__content-top title__content-wrapper">
             {caption.map((_, i) => (
               <span key={i} className={`title__content-${row[0] === i + 1 ? color : ''}`}>
@@ -22,7 +22,7 @@ export const Title: React.FC<TitleType> = ({ title, color, row }) => {
             ))}
           </div>
         </Fade>
-        <Fade left>
+        <Fade direction='right' triggerOnce>
           <div className="title__content-bottom title__content-wrapper">
             {caption.map((_, i) => (
               <span key={i} className={`title__content-${row[1] === i + 1 ? color : ''}`}>
