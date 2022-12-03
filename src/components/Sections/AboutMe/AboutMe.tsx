@@ -16,8 +16,8 @@ export const AboutMe: React.FC = () => {
               <Fade direction='left' triggerOnce>
                 <img className='about-me__foto-self' src={fotoSelf} alt='Моя фотография' />
               </Fade>
-              <Fade direction='right' triggerOnce>
-                <div className='about-me__text'>
+              <div className='about-me__text'>
+                <Fade direction='right' triggerOnce cascade damping={0.3}>
                   <p>Привет, я Полина, твой тату-мастер.</p>
                   <p>
                     Мой опыт в создании тату - 3 года. Я работаю в уютной и комфортной студии у метро Обводный канал.
@@ -29,8 +29,8 @@ export const AboutMe: React.FC = () => {
                   <p> Для своих тату я выбираю черный пигмент и грейвош, исключением могут стать красный и синий.</p>
                   <p> Я не повторяю свои эскизы и не делаю копии чужих работ.</p>
                   <p>Всегда смогу по референсам создать эскиз, в котором будут отражены мой стиль и частичка вас.</p>
-                </div>
-              </Fade>
+                </Fade>
+              </div>
             </div>
           </div>
         </div>
