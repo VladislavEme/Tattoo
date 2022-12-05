@@ -1,10 +1,19 @@
+import React from 'react';
 import { Title } from '../../Title/Title';
+import { ModalGallery } from '../ModalGallery/ModalGallery';
 import './MyWorks.scss';
 
 export const MyWorks: React.FC = () => {
-  const clickWorks = (item: String) => {
-    console.log(item);
+  const [openGallery, setOpenGallery] = React.useState<Boolean>(false);
+
+  const closeClick = () => {
+    setOpenGallery(false);
   };
+
+  const clickWorks = (item: String) => {
+    setOpenGallery(true);
+  };
+
   const myWorks = ['Тату', 'Зажившие тату', 'Эскизы'];
   return (
     <>
@@ -13,13 +22,14 @@ export const MyWorks: React.FC = () => {
         <ul className='works__list'>
           {myWorks.map((item, i) => (
             <li className='works__item' key={i}>
-              <a onClick={() => clickWorks(item)} className='works__link' href='#'>
+              <a onClick={() => clickWorks(item)} className='works__link'>
                 {item}
               </a>
             </li>
           ))}
         </ul>
       </div>
+      {openGallery && <ModalGallery clickClose={closeClick} />}
     </>
   );
 };
