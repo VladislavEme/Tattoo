@@ -1,8 +1,38 @@
 .works {
-  position: relative;
+  &__title {
+    margin-bottom: 42px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item:nth-child(-n+2) {
+    margin-right: 92px;
+    position: relative;
+
+  }
+
+  &__item:nth-child(-n+2)::after {
+    content: '';
+    position: absolute;
+    right: -50px;
+    top: 22px;
+    width: 8px;
+    height: 8px;
+    background-color: #2235D1;
+    border-radius: 10px;
+  }
 
   &__link {
-    font-size: 30px;
+    font-size: 36px;
+    color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    transition: color 0.2s ease-in-out;
+  }
+
+  &__link:hover {
+    color: #2235D1
   }
 }

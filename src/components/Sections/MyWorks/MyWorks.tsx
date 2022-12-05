@@ -1,10 +1,11 @@
 import React from 'react';
 import { Title } from '../../Title/Title';
-import { ModalGallery } from '../ModalGallery/ModalGallery';
+import { ModalGallery } from '../../ModalGallery/ModalGallery';
 import './MyWorks.scss';
 
 export const MyWorks: React.FC = () => {
   const [openGallery, setOpenGallery] = React.useState<Boolean>(false);
+  const [worksActive, setWorksActive] = React.useState<String>('');
 
   const closeClick = () => {
     setOpenGallery(false);
@@ -12,12 +13,16 @@ export const MyWorks: React.FC = () => {
 
   const clickWorks = (item: String) => {
     setOpenGallery(true);
+    setWorksActive(item);
   };
 
   const myWorks = ['Тату', 'Зажившие тату', 'Эскизы'];
+
   return (
-    <>
-      <Title title={'my works'} color={'blue'} row={[2, 1]} />
+    <section className='works'>
+      <h2 className='works__title'>
+        <Title title={'my works'} color={'blue'} row={[2, 1]} />
+      </h2>
       <div className='container'>
         <ul className='works__list'>
           {myWorks.map((item, i) => (
@@ -29,7 +34,7 @@ export const MyWorks: React.FC = () => {
           ))}
         </ul>
       </div>
-      {openGallery && <ModalGallery clickClose={closeClick} />}
-    </>
+      {openGallery && <ModalGallery clickClose={closeClick} item={worksActive} />}
+    </section>
   );
 };
