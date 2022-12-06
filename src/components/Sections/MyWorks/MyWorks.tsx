@@ -1,30 +1,21 @@
 import React from 'react';
 import './MyWorks.scss';
+import { Button } from '../../Button/Button';
 import { Title } from '../../Title/Title';
 import { ModalGallery } from '../../ModalGallery/ModalGallery';
 import type { RootState } from '../../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
-import { decrement, increment } from '../../../redux/counterSlice';
+import { setOpenGallery, setGalleryActive } from '../../../redux/gallerySlice';
+import { WorksNav } from './WorksNav';
 
 export const MyWorks: React.FC = () => {
-  const count = useSelector((state: RootState) => state.counter.value);
+  const openGallery = useSelector((state: RootState) => state.gallery.openGallery);
+  const galleryActive = useSelector((state: RootState) => state.gallery.galleryActive);
   const dispatch = useDispatch();
 
-  const [openGallery, setOpenGallery] = React.useState<Boolean>(false);
-  const [worksActive, setWorksActive] = React.useState<String>('');
-
-  const closeClick = () => {
-    setOpenGallery(false);
+  const clickAllWorks = () => {
+    dispatch(setOpenGallery());
   };
-
-  const clickWorks = (item: String) => {
-    console.log(count);
-
-    setOpenGallery(true);
-    setWorksActive(item);
-  };
-
-  const myWorks = ['Тату', 'Зажившие тату', 'Эскизы'];
 
   return (
     <section className='works'>
@@ -32,17 +23,11 @@ export const MyWorks: React.FC = () => {
         <Title title={'my works'} color={'blue'} row={[2, 1]} />
       </h2>
       <div className='container'>
-        <ul className='works__list'>
-          {myWorks.map((item, i) => (
-            <li className='works__item' key={i}>
-              <a onClick={() => clickWorks(item)} className='works__link'>
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <WorksNav />
       </div>
-      {openGallery && <ModalGallery clickClose={closeClick} item={worksActive} />}
+      <h2>{galleryActive}</h2>
+      <Button clickButton={clickAllWorks} title={'Показать все'} />
+      {openGallery && <ModalGallery />}
     </section>
   );
 };

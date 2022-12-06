@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './counterSlice';
+import galleryReducer from './gallerySlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    gallery: galleryReducer,
   },
 });
 

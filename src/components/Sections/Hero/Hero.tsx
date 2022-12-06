@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
             <Fade direction='right' triggerOnce>
               <div className='hero__button-block'>
                 <img className='hero__img-braille' src={brailleHero} alt='Тату Брайля' />
-                <Button title={'Записаться'} />
+                <Button clickButton={() => {}} title={'Записаться'} />
               </div>
             </Fade>
           </div>

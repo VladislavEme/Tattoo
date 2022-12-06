@@ -24,15 +24,20 @@
     background-color: #2235D1;
     border-radius: 10px;
   }
+}
 
-  &__link {
-    font-size: 36px;
-    color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    transition: color 0.2s ease-in-out;
-  }
 
-  &__link:hover {
-    color: #2235D1
-  }
+a {
+  font-size: 36px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #2235D1
+}
+
+.active {
+  color: #2235D1
 }
