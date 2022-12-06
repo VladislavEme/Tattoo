@@ -1,9 +1,15 @@
 import React from 'react';
+import './MyWorks.scss';
 import { Title } from '../../Title/Title';
 import { ModalGallery } from '../../ModalGallery/ModalGallery';
-import './MyWorks.scss';
+import type { RootState } from '../../../redux/store';
+import { useSelector, useDispatch } from 'react-redux';
+import { decrement, increment } from '../../../redux/counterSlice';
 
 export const MyWorks: React.FC = () => {
+  const count = useSelector((state: RootState) => state.counter.value);
+  const dispatch = useDispatch();
+
   const [openGallery, setOpenGallery] = React.useState<Boolean>(false);
   const [worksActive, setWorksActive] = React.useState<String>('');
 
@@ -12,6 +18,8 @@ export const MyWorks: React.FC = () => {
   };
 
   const clickWorks = (item: String) => {
+    console.log(count);
+
     setOpenGallery(true);
     setWorksActive(item);
   };
