@@ -3,26 +3,32 @@
     margin-bottom: 42px;
   }
 
-  &__list {
+  &__nav {
+    margin-bottom: 44px;
+  }
+
+  &__img {
     display: flex;
-    justify-content: center;
-  }
+    justify-content: space-between;
+    align-items: center;
 
-  &__item:nth-child(-n+2) {
-    margin-right: 92px;
-    position: relative;
+    &-one {
+      border: 2px solid #000;
+      width: 320px;
+      height: 480px;
+    }
 
-  }
+    &-two {
+      border: 2px solid #000;
+      width: 439px;
+      height: 568px;
+    }
 
-  &__item:nth-child(-n+2)::after {
-    content: '';
-    position: absolute;
-    right: -50px;
-    top: 22px;
-    width: 8px;
-    height: 8px;
-    background-color: #2235D1;
-    border-radius: 10px;
+    &-three {
+      border: 2px solid #000;
+      width: 320px;
+      height: 368px;
+    }
   }
 }
 

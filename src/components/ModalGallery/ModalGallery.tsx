@@ -2,7 +2,7 @@ import './ModalGallery.scss';
 import type { RootState } from '../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCloseGallery } from '../../redux/gallerySlice';
-import { WorksNav } from '../Sections/MyWorks/WorksNav';
+import { WorksNav } from '../WorksNav/WorksNav';
 
 export const ModalGallery: React.FC = () => {
   const galleryActive = useSelector((state: RootState) => state.gallery.galleryActive);

@@ -1,0 +1,23 @@
+.works-nav {
+    &__list {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__item:nth-child(-n+2) {
+        margin-right: 92px;
+        position: relative;
+
+    }
+
+    &__item:nth-child(-n+2)::after {
+        content: '';
+        position: absolute;
+        right: -50px;
+        top: 22px;
+        width: 8px;
+        height: 8px;
+        background-color: #2235D1;
+        border-radius: 10px;
+    }
+}

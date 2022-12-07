@@ -10,6 +10,7 @@
   border: 2px solid #000;
   border-radius: 50%;
   cursor: pointer;
+  transition: border 0.2s ease-in-out;
 
   &::before {
     content: "";
@@ -21,7 +22,12 @@
     left: -1px;
     top: -1px;
     transform: rotate(-10deg);
-    transition: 0.2s ease-in-out transform;
+    transition: transform 0.2s ease-in-out;
+
+  }
+
+  &:hover {
+    border: 2px solid #2235D1;
   }
 
   &:hover::before {

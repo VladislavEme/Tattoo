@@ -1,6 +1,7 @@
+import './WorksNav.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { setGalleryActive } from '../../../redux/gallerySlice';
-import { RootState } from '../../../redux/store';
+import { setGalleryActive } from '../../redux/gallerySlice';
+import { RootState } from '../../redux/store';
 
 export const WorksNav = () => {
   const dispatch = useDispatch();
@@ -12,9 +13,9 @@ export const WorksNav = () => {
   };
 
   return (
-    <ul className='works__list'>
+    <ul className='works-nav__list'>
       {myWorks.map((item, i) => (
-        <li className='works__item' key={i}>
+        <li className='works-nav__item' key={i}>
           <a className={item === galleryActive ? 'active' : ''} onClick={() => clickWorks(item)}>
             {item}
           </a>
