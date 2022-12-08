@@ -6,13 +6,12 @@ import { Title } from '../../Title/Title';
 import { ModalGallery } from '../../ModalGallery/ModalGallery';
 import type { RootState } from '../../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
-import { setOpenGallery, setStartActive } from '../../../redux/gallerySlice';
+import { setOpenGallery } from '../../../redux/gallerySlice';
 import { WorksNav } from '../../WorksNav/WorksNav';
 import imgData from '../../../assets/img/worksImg.json';
 
 export const MyWorks: React.FC = () => {
   const openGallery = useSelector((state: RootState) => state.gallery.openGallery);
-  const startImg = useSelector((state: RootState) => state.gallery.startImg);
   const dispatch = useDispatch();
 
   const clickAllWorks = () => {
@@ -21,8 +20,6 @@ export const MyWorks: React.FC = () => {
 
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 150;
-  console.log(activeItemIndex);
-  // const testImg = imgData[0].url;
 
   return (
     <section className='works'>
@@ -33,44 +30,9 @@ export const MyWorks: React.FC = () => {
         <div className='works__nav'>
           <WorksNav />
         </div>
-        <div className='works__img'>
-          {/* <button
-            className='works__button button-left'
-            onClick={() => {
-              dispatch(setStartActive(-1));
-            }}
-          ></button>
-
-          <img
-            className='works__img-one'
-            src={require(`../../../assets/img/galleryImg/tattoo/${startImg}.jpg`)}
-            alt='Главное фото'
-          />
-          <img
-            className='works__img-two'
-            src={require(`../../../assets/img/galleryImg/tattoo/${startImg + 1}.jpg`)}
-            alt='Главное фото'
-          />
-
-          <div className='works__block-img-three'>
-            <img
-              className='works__img-three'
-              src={require(`../../../assets/img/galleryImg/tattoo/${startImg + 2}.jpg`)}
-              alt='Главное фото'
-            />
-            <Button clickButton={clickAllWorks} title={'Показать все'} />
-          </div>
-
-          <button
-            className='works__button button-right'
-            onClick={() => {
-              dispatch(setStartActive(+1));
-            }}
-          ></button> */}
-        </div>
-
+     
         <ItemsCarousel
-          classes={{ itemWrapper: 'slider__wrapper' }}
+          classes={{  itemWrapper:'img-wrapper', wrapper:'wrapper-slider' }}
           requestToChangeActive={setActiveItemIndex}
           activeItemIndex={activeItemIndex}
           numberOfCards={3}
@@ -83,8 +45,7 @@ export const MyWorks: React.FC = () => {
         >
           {imgData.map((item, i) => (
             <img
-              className={activeItemIndex + 1 === i ? 'img__slider-active' : 'img__slider'}
-              // дописать условия: если activeItemIndex + 1, то это второй элемент, activeItemIndex + 2 - это третий элемент, activeItemIndex - это первый элемент
+              className={activeItemIndex + 1 === i ? 'img__slider-center' : activeItemIndex===i?'img__slider-left':activeItemIndex+2===i?'img__slider-right':'img__slider'}
               src={item}
               alt={`Фото № ${i}`}
               key={i}

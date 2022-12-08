@@ -4,13 +4,11 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 export interface GalleryState {
   openGallery: boolean;
   galleryActive: string;
-  startImg: number;
 }
 
 const initialState: GalleryState = {
   openGallery: false,
   galleryActive: 'Тату',
-  startImg: 1,
 };
 
 export const gallerySlice = createSlice({
@@ -28,13 +26,9 @@ export const gallerySlice = createSlice({
     setGalleryActive: (state, action: PayloadAction<string>) => {
       state.galleryActive = action.payload;
     },
-
-    setStartActive: (state, action) => {
-      state.startImg += action.payload;
-    },
   },
 });
 
-export const { setOpenGallery, setCloseGallery, setGalleryActive, setStartActive } = gallerySlice.actions;
+export const { setOpenGallery, setCloseGallery, setGalleryActive } = gallerySlice.actions;
 
 export default gallerySlice.reducer;
