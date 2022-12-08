@@ -20,8 +20,8 @@ export const MyWorks: React.FC = () => {
   };
 
   const [activeItemIndex, setActiveItemIndex] = useState(0);
-  const chevronWidth = 100;
-
+  const chevronWidth = 150;
+  console.log(activeItemIndex);
   // const testImg = imgData[0].url;
 
   return (
@@ -68,27 +68,34 @@ export const MyWorks: React.FC = () => {
             }}
           ></button> */}
         </div>
-        {/* <h2>{galleryActive}</h2> */}
-        {openGallery && <ModalGallery />}
-      </div>
-      <div style={{ padding: `0 ${chevronWidth}px` }}>
+
         <ItemsCarousel
+          classes={{ itemWrapper: 'slider__wrapper' }}
           requestToChangeActive={setActiveItemIndex}
           activeItemIndex={activeItemIndex}
           numberOfCards={3}
-          infiniteLoop
-          gutter={20}
+          gutter={30}
           leftChevron={<button className='button__slider'>&#8249;</button>}
           rightChevron={<button className='button__slider'>&#8250;</button>}
           outsideChevron
-          slidesToScroll={3}
+          slidesToScroll={1}
           chevronWidth={chevronWidth}
         >
           {imgData.map((item, i) => (
-            <img className='works__img-two' src={item} alt={`Фото № ${i}`} key={i} />
+            <img
+              className={activeItemIndex + 1 === i ? 'img__slider-active' : 'img__slider'}
+              // дописать условия: если activeItemIndex + 1, то это второй элемент, activeItemIndex + 2 - это третий элемент, activeItemIndex - это первый элемент
+              src={item}
+              alt={`Фото № ${i}`}
+              key={i}
+            />
           ))}
         </ItemsCarousel>
+
+        {openGallery && <ModalGallery />}
       </div>
+
+      <Button clickButton={clickAllWorks} title={'Показать все'} />
     </section>
   );
 };

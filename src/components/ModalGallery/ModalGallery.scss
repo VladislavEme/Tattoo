@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   animation: modal-gallery 0.3s ease-in-out;
+  z-index: 10;
 
   @keyframes modal-gallery {
     0% {
