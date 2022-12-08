@@ -1,4 +1,6 @@
 .works {
+  position: relative;
+
   &__title {
     margin-bottom: 42px;
   }
@@ -6,8 +8,13 @@
   &__nav {
     margin-bottom: 44px;
   }
-}
 
+  &__button {
+    right: 170px;
+    bottom: 120px;
+    position: absolute;
+  }
+}
 
 a {
   font-size: 36px;
@@ -39,10 +46,8 @@ a:hover {
   opacity: 0.5;
 }
 
-
-
 .wrapper-slider {
-  min-height: 650px;
+  height: 650px;
 }
 
 .img-wrapper {
@@ -54,10 +59,11 @@ a:hover {
 .img__slider {
   position: relative;
   top: 32px;
-  border: 2px solid #000;
   width: 360px;
-  height: 100%;
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  height: 60%;
+  border: 2px solid #000;
+  opacity: 0;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .img__slider-left {
@@ -67,7 +73,7 @@ a:hover {
   height: 480px;
   object-fit: cover;
   border: 2px solid #000;
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out, opacity 0.5s ease-in-out;
   animation: img-top 0.5s ease-in-out;
 
 }
@@ -89,7 +95,7 @@ a:hover {
   height: 368px;
   object-fit: cover;
   border: 2px solid #000;
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out, opacity 0.5s ease-in-out;
   animation: img-top 0.5s ease-in-out;
 }
 
