@@ -8,44 +8,48 @@ import type { RootState } from '../../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { setOpenGallery } from '../../../redux/gallerySlice';
 import { WorksNav } from '../../WorksNav/WorksNav';
-import imgData from '../../../assets/img/worksImg.json';
+import imgTattoo from '../../../assets/img/worksImg.json';
 
 export const MyWorks: React.FC = () => {
-  const openGallery = useSelector(
-    (state: RootState) => state.gallery.openGallery
-  );
+  const openGallery = useSelector((state: RootState) => state.gallery.openGallery);
+  const galleryActive = useSelector((state: RootState) => state.gallery.galleryActive);
   const dispatch = useDispatch();
+
+  const imgData =
+    galleryActive === 'Тату' ? imgTattoo[0] : galleryActive === 'Зажившие тату' ? imgTattoo[1] : imgTattoo[2];
 
   const clickAllWorks = () => {
     dispatch(setOpenGallery());
   };
 
-  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const [activeItemIndex, setActiveImageIndex] = useState(0);
   const chevronWidth = 150;
 
+  console.log(galleryActive);
+
   return (
-    <section className="works">
-      <h2 className="works__title">
+    <section className='works'>
+      <h2 className='works__title'>
         <Title title={'my works'} color={'blue'} row={[2, 1]} />
       </h2>
-      <div className="container">
-        <div className="works__nav">
+      <div className='container'>
+        <div className='works__nav'>
           <WorksNav />
         </div>
 
         <ItemsCarousel
           classes={{ itemWrapper: 'img-wrapper', wrapper: 'wrapper-slider' }}
-          requestToChangeActive={setActiveItemIndex}
+          requestToChangeActive={setActiveImageIndex}
           activeItemIndex={activeItemIndex}
           numberOfCards={3}
           gutter={30}
-          leftChevron={<button className="button__slider">&#8249;</button>}
-          rightChevron={<button className="button__slider">&#8250;</button>}
+          leftChevron={<button className='button__slider'>&#8249;</button>}
+          rightChevron={<button className='button__slider'>&#8250;</button>}
           outsideChevron
           slidesToScroll={1}
           chevronWidth={chevronWidth}
         >
-          {imgData.map((item, i) => (
+          {imgData.map((item: string, i: number) => (
             <img
               className={
                 activeItemIndex + 1 === i
@@ -62,7 +66,7 @@ export const MyWorks: React.FC = () => {
             />
           ))}
         </ItemsCarousel>
-        <div className="works__button">
+        <div className='works__button'>
           <Button clickButton={clickAllWorks} title={'Показать все'} />
         </div>
 
