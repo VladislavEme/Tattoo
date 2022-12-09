@@ -22,32 +22,29 @@ export const MyWorks: React.FC = () => {
     dispatch(setOpenGallery());
   };
 
-  const [activeItemIndex, setActiveImageIndex] = useState(0);
-  const chevronWidth = 150;
-
-  console.log(galleryActive);
+  const [activeItemIndex, setActiveImageIndex] = useState<number>(0);
 
   return (
-    <section className='works'>
-      <h2 className='works__title'>
+    <section className="works">
+      <h2 className="works__title">
         <Title title={'my works'} color={'blue'} row={[2, 1]} />
       </h2>
-      <div className='container'>
-        <div className='works__nav'>
-          <WorksNav />
+      <div className="container">
+        <div className="works__nav">
+          <WorksNav resetActiveImg={setActiveImageIndex} />
         </div>
 
         <ItemsCarousel
-          classes={{ itemWrapper: 'img-wrapper', wrapper: 'wrapper-slider' }}
-          requestToChangeActive={setActiveImageIndex}
           activeItemIndex={activeItemIndex}
-          numberOfCards={3}
+          classes={{ itemWrapper: 'img-wrapper', wrapper: 'wrapper-slider' }}
+          chevronWidth={150}
           gutter={30}
-          leftChevron={<button className='button__slider'>&#8249;</button>}
-          rightChevron={<button className='button__slider'>&#8250;</button>}
+          leftChevron={<button className="button__slider">&#8249;</button>}
+          numberOfCards={3}
           outsideChevron
+          requestToChangeActive={setActiveImageIndex}
+          rightChevron={<button className="button__slider">&#8250;</button>}
           slidesToScroll={1}
-          chevronWidth={chevronWidth}
         >
           {imgData.map((item: string, i: number) => (
             <img
@@ -66,10 +63,9 @@ export const MyWorks: React.FC = () => {
             />
           ))}
         </ItemsCarousel>
-        <div className='works__button'>
+        <div className="works__button">
           <Button clickButton={clickAllWorks} title={'Показать все'} />
         </div>
-
         {openGallery && <ModalGallery />}
       </div>
     </section>

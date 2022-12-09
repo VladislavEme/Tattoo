@@ -9,9 +9,9 @@ export const ModalGallery: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className='modal' onClick={() => dispatch(setCloseGallery())}>
-      <div className='modal__content' onClick={(e) => e.stopPropagation()}>
-        <button className='modal__button-close' onClick={() => dispatch(setCloseGallery())}>
+    <div className="modal" onClick={() => dispatch(setCloseGallery())}>
+      <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+        <button className="modal__button-close" onClick={() => dispatch(setCloseGallery())}>
           Close
         </button>
         <WorksNav />
