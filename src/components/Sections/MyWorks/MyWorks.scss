@@ -34,6 +34,7 @@ a:hover {
 // params-slider
 .button__slider {
   cursor: pointer;
+  user-select: none;
   height: 100%;
   width: 100%;
   color: #2235D1;
@@ -63,8 +64,9 @@ a:hover {
   width: 360px;
   height: 60%;
   border: 2px solid #000;
+  user-select: none;
   opacity: 0;
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out, opacity 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .img__slider-left {
@@ -74,8 +76,9 @@ a:hover {
   height: 480px;
   object-fit: cover;
   border: 2px solid #000;
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  animation: img-top 0.5s ease-in-out;
+  user-select: none;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  animation: img-top 0.2s ease-in-out;
 
 }
 
@@ -85,8 +88,9 @@ a:hover {
   height: 568px;
   object-fit: cover;
   border: 2px solid #000;
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
-  animation: center-img 0.5s ease-in-out;
+  user-select: none;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+  animation: center-img 0.2s ease-in-out;
 }
 
 .img__slider-right {
@@ -96,8 +100,9 @@ a:hover {
   height: 368px;
   object-fit: cover;
   border: 2px solid #000;
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  animation: img-top 0.5s ease-in-out;
+  user-select: none;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  animation: img-top 0.2s ease-in-out;
 }
 
 @keyframes img-top {
@@ -117,5 +122,20 @@ a:hover {
 
   100% {
     top: 0px
+  }
+}
+
+
+.opacity {
+  animation: opac 1s ease-in-out;
+}
+
+@keyframes opac {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
   }
 }

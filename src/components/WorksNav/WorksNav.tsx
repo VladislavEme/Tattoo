@@ -5,9 +5,10 @@ import { RootState } from '../../redux/store';
 
 type WorksNavProps = {
   resetActiveImg?: any;
+  direction?: string;
 };
 
-export const WorksNav: React.FC<WorksNavProps> = ({ resetActiveImg }) => {
+export const WorksNav: React.FC<WorksNavProps> = ({ resetActiveImg, direction = 'row' }) => {
   const dispatch = useDispatch();
   const galleryActive = useSelector((state: RootState) => state.gallery.galleryActive);
   const myWorks = ['Тату', 'Зажившие тату', 'Эскизы'];
@@ -21,9 +22,9 @@ export const WorksNav: React.FC<WorksNavProps> = ({ resetActiveImg }) => {
   };
 
   return (
-    <ul className="works-nav__list">
+    <ul className={`works-nav-${direction}__list`}>
       {myWorks.map((item, i) => (
-        <li className="works-nav__item" key={i}>
+        <li className={`works-nav-${direction}__item`} key={i}>
           <a className={item === galleryActive ? 'active' : ''} onClick={() => clickWorks(item)}>
             {item}
           </a>

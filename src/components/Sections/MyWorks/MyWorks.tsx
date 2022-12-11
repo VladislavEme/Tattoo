@@ -36,7 +36,10 @@ export const MyWorks: React.FC = () => {
 
         <ItemsCarousel
           activeItemIndex={activeItemIndex}
-          classes={{ itemWrapper: 'img-wrapper', wrapper: 'wrapper-slider' }}
+          classes={{
+            itemWrapper: 'img-wrapper',
+            wrapper: `wrapper-slider`,
+          }}
           chevronWidth={150}
           gutter={30}
           leftChevron={<button className="button__slider">&#8249;</button>}
