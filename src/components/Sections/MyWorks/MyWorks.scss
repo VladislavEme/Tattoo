@@ -18,6 +18,13 @@
     bottom: 120px;
     position: absolute;
   }
+
+  &__loading {
+    height: 650px;
+    display: flex;
+    padding-top: 200px;
+    justify-content: center;
+  }
 }
 
 a {
@@ -54,6 +61,7 @@ a:hover {
 .wrapper-slider {
   height: 650px;
   opacity: 1;
+  animation: opac 1s ease-in-out;
 
 }
 
@@ -110,6 +118,45 @@ a:hover {
   animation: img-top 0.2s ease-in-out;
 }
 
+
+
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 100;
+  width: 120px;
+  height: 120px;
+
+  .path {
+    stroke: #2235D1;
+    stroke-linecap: round;
+    animation: dash 1.0s ease-in-out infinite;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
 @keyframes img-top {
   0% {
     top: 0px
@@ -130,14 +177,13 @@ a:hover {
   }
 }
 
-
-.opacity {
-  animation: opac 1s ease-in-out;
-}
-
 @keyframes opac {
   0% {
     opacity: 0
+  }
+
+  10% {
+    opacity: 0;
   }
 
   100% {
