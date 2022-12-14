@@ -21,6 +21,7 @@
   }
 
   &__window {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,9 +35,40 @@
   }
 
   &__content {
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
+    align-content: space-between;
+  }
+
+  &__pagination {
+    position: absolute;
+    bottom: 56px;
+
+    &-button {
+      font-size: 36px;
+      background: none;
+      border: none;
+      color: #00000080;
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: #2235D1;
+      }
+
+      &:not(:last-child) {
+        margin-right: 50px;
+      }
+
+      &.active {
+        color: #2235D1;
+
+      }
+    }
   }
 
   &__nav {
@@ -44,10 +76,17 @@
     height: 370px;
   }
 
+
   &__block {
     margin-bottom: 46px;
     width: 320px;
     height: 370px;
+  }
+
+  &__img {
+    object-fit: cover;
+    width: inherit;
+    height: inherit;
     border: 1px solid #000;
   }
 

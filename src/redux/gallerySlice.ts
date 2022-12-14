@@ -5,12 +5,14 @@ export interface GalleryState {
   openGallery: boolean;
   galleryActive: string;
   imgData: string[];
+  currentPage: number;
 }
 
 const initialState: GalleryState = {
   openGallery: false,
   galleryActive: 'Тату',
-  imgData: ['img1', 'img2', 'img3'],
+  imgData: [],
+  currentPage: 1,
 };
 
 export const gallerySlice = createSlice({
@@ -32,9 +34,13 @@ export const gallerySlice = createSlice({
     setImgData: (state, action: PayloadAction<string[]>) => {
       state.imgData = action.payload;
     },
+
+    setCurrentPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
+    },
   },
 });
 
-export const { setOpenGallery, setCloseGallery, setGalleryActive, setImgData } = gallerySlice.actions;
+export const { setOpenGallery, setCloseGallery, setGalleryActive, setImgData, setCurrentPage } = gallerySlice.actions;
 
 export default gallerySlice.reducer;
