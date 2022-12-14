@@ -35,8 +35,7 @@
   }
 
   &__content {
-    // display: flex;
-    // flex-wrap: wrap;
+    position: relative;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -44,30 +43,63 @@
     align-content: space-between;
   }
 
+  &__loading {
+    position: absolute;
+    top: 335px;
+    left: 620px;
+  }
+
   &__pagination {
     position: absolute;
     bottom: 56px;
+  }
 
-    &-button {
-      font-size: 36px;
-      background: none;
-      border: none;
-      color: #00000080;
-      cursor: pointer;
-      transition: color 0.2s ease-in-out;
+  &__button-page {
+    font-size: 36px;
+    background: none;
+    border: none;
+    color: #00000080;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
 
-      &:hover {
-        color: #2235D1;
-      }
+    &:hover {
+      color: #2235D1;
+    }
 
-      &:not(:last-child) {
-        margin-right: 50px;
-      }
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
 
-      &.active {
-        color: #2235D1;
+    &.active {
+      color: #2235D1;
+    }
+  }
 
-      }
+  &__button-next {
+    font-size: 50px;
+    background: none;
+    border: none;
+    color: #00000080;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: #2235D1;
+    }
+  }
+
+
+  &__button-back {
+    margin-right: 50px;
+    font-size: 50px;
+    background: none;
+    border: none;
+    color: #00000080;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: #2235D1;
     }
   }
 
@@ -81,6 +113,7 @@
     margin-bottom: 46px;
     width: 320px;
     height: 370px;
+    animation: opac 0.5s ease-in-out;
   }
 
   &__img {
@@ -106,5 +139,18 @@
   &__button-close:hover {
     color: #2235D1;
   }
+}
 
+@keyframes opac {
+  0% {
+    opacity: 0
+  }
+
+  10% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1
+  }
 }

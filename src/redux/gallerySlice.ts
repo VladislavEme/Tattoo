@@ -6,6 +6,7 @@ export interface GalleryState {
   galleryActive: string;
   imgData: string[];
   currentPage: number;
+  isLoadingGallery: boolean;
 }
 
 const initialState: GalleryState = {
@@ -13,6 +14,7 @@ const initialState: GalleryState = {
   galleryActive: 'Тату',
   imgData: [],
   currentPage: 1,
+  isLoadingGallery: false,
 };
 
 export const gallerySlice = createSlice({
@@ -38,9 +40,14 @@ export const gallerySlice = createSlice({
     setCurrentPage: (state, action: PayloadAction<number>) => {
       state.currentPage = action.payload;
     },
+
+    setIsLoadingGallery: (state, action: PayloadAction<boolean>) => {
+      state.isLoadingGallery = action.payload;
+    },
   },
 });
 
-export const { setOpenGallery, setCloseGallery, setGalleryActive, setImgData, setCurrentPage } = gallerySlice.actions;
+export const { setOpenGallery, setCloseGallery, setGalleryActive, setImgData, setCurrentPage, setIsLoadingGallery } =
+  gallerySlice.actions;
 
 export default gallerySlice.reducer;
