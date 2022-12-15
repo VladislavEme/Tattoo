@@ -52,6 +52,7 @@
   &__pagination {
     position: absolute;
     bottom: 56px;
+    user-select: none;
   }
 
   &__button-page {
@@ -81,7 +82,7 @@
     border: none;
     color: #00000080;
     cursor: pointer;
-    transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 
     &:hover {
       color: #2235D1;
@@ -96,7 +97,7 @@
     border: none;
     color: #00000080;
     cursor: pointer;
-    transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 
     &:hover {
       color: #2235D1;
@@ -114,13 +115,32 @@
     width: 320px;
     height: 370px;
     animation: opac 0.5s ease-in-out;
+    user-select: none;
   }
 
   &__img {
     object-fit: cover;
     width: inherit;
     height: inherit;
-    border: 1px solid #000;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+
+    // animation: opac 3s ease-in-out;
+
+    // @keyframes opac {
+    //   0% {
+    //     opacity: 0
+    //   }
+
+    //   10% {
+    //     opacity: 0;
+    //   }
+
+    //   100% {
+    //     opacity: 1
+    //   }
+    // }
+
   }
 
   &__button-close {
@@ -139,6 +159,11 @@
   &__button-close:hover {
     color: #2235D1;
   }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0;
 }
 
 @keyframes opac {

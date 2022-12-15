@@ -6,9 +6,14 @@ import { Title } from '../../Title/Title';
 import { ModalGallery } from '../../ModalGallery/ModalGallery';
 import type { RootState } from '../../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
-import { setOpenGallery, setImgData, setIsLoadingGallery } from '../../../redux/gallerySlice';
+import {
+  setOpenGallery,
+  setImgData,
+  setIsLoadingGallery,
+  setCurrentPage,
+  setAmountPage,
+} from '../../../redux/gallerySlice';
 import { WorksNav } from '../../WorksNav/WorksNav';
-// import imgTattoo from '../../../assets/img/worksImg.json';
 import axios from 'axios';
 import LoadingAnimation from '../../LoadingAnimation/LoadingAnimation';
 
@@ -19,14 +24,16 @@ export const MyWorks: React.FC = () => {
   const isLoadingGallery = useSelector((state: RootState) => state.gallery.isLoadingGallery);
   const dispatch = useDispatch();
 
-  // const imgData = galleryActive === 'Тату' ? imgTattoo[0] : galleryActive === 'Зажившие тату' ? imgTattoo[1] : imgTattoo[2];
-
   const clickAllWorks = () => {
     dispatch(setOpenGallery());
+    dispatch(setCurrentPage(1));
   };
 
   const [activeItemIndex, setActiveImageIndex] = useState<number>(0);
-  // const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const onLoaded = () => {
+    console.log('loaded');
+  };
 
   React.useEffect(() => {
     dispatch(setIsLoadingGallery(false));
@@ -38,17 +45,18 @@ export const MyWorks: React.FC = () => {
         return item.url;
       });
       dispatch(setImgData(data));
+      dispatch(setAmountPage());
       dispatch(setIsLoadingGallery(true));
     });
   }, [galleryActive]);
 
   return (
-    <section className='works'>
-      <h2 className='works__title'>
+    <section className="works">
+      <h2 className="works__title">
         <Title title={'my works'} color={'blue'} row={[2, 1]} />
       </h2>
-      <div className='container'>
-        <div className='works__nav'>
+      <div className="container">
+        <div className="works__nav">
           <WorksNav resetActiveImg={setActiveImageIndex} />
         </div>
 
@@ -61,11 +69,11 @@ export const MyWorks: React.FC = () => {
             }}
             chevronWidth={150}
             gutter={30}
-            leftChevron={<button className='button__slider'>&#8249;</button>}
+            leftChevron={<button className="button__slider">&#8249;</button>}
             numberOfCards={3}
             outsideChevron
             requestToChangeActive={setActiveImageIndex}
-            rightChevron={<button className='button__slider'>&#8250;</button>}
+            rightChevron={<button className="button__slider">&#8250;</button>}
             slidesToScroll={1}
           >
             {imgData.map((item: string, i: number) => (
@@ -86,11 +94,11 @@ export const MyWorks: React.FC = () => {
             ))}
           </ItemsCarousel>
         ) : (
-          <div className='works__loading'>
+          <div className="works__loading">
             <LoadingAnimation />
           </div>
         )}
-        <div className='works__button'>
+        <div className="works__button">
           <Button clickButton={clickAllWorks} title={'Показать все'} />
         </div>
         {openGallery && <ModalGallery />}
