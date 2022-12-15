@@ -1,15 +1,27 @@
 import './ModalGallery.scss';
 import type { RootState } from '../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCloseGallery, setCurrentPage, setStepPage } from '../../redux/gallerySlice';
+import {
+  setCloseGallery,
+  setCurrentPage,
+  setStepPage,
+  setImgDataPage,
+  setIsLoadingGallery,
+  setIsLoadingPage,
+} from '../../redux/gallerySlice';
 import { WorksNav } from '../WorksNav/WorksNav';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
+import React from 'react';
+import axios from 'axios';
 
 export const ModalGallery: React.FC = () => {
-  const imgData = useSelector((state: RootState) => state.gallery.imgData);
+  // const imgData = useSelector((state: RootState) => state.gallery.imgData);
   const currentPage = useSelector((state: RootState) => state.gallery.currentPage);
   const isLoadingGallery = useSelector((state: RootState) => state.gallery.isLoadingGallery);
   const amountPage = useSelector((state: RootState) => state.gallery.amountPage);
+  const galleryActive = useSelector((state: RootState) => state.gallery.galleryActive);
+  const imgDataPage = useSelector((state: RootState) => state.gallery.imgDataPage);
+  const isLoadingPage = useSelector((state: RootState) => state.gallery.isLoadingPage);
 
   const dispatch = useDispatch();
 
@@ -25,7 +37,21 @@ export const ModalGallery: React.FC = () => {
     dispatch(setStepPage(i));
   };
 
-  const pageImgData = imgData.filter((_, i) => i < currentPage * 7 && i >= (currentPage - 1) * 7);
+  // const pageImgData = imgData.filter((_, i) => i < currentPage * 7 && i >= (currentPage - 1) * 7);
+
+  React.useEffect(() => {
+    dispatch(setIsLoadingPage(false));
+    const urlArr = galleryActive === 'Тату' ? 'tattoo' : galleryActive === 'Зажившие тату' ? 'healed' : 'sketches';
+    const url = `https://630b29edf280658a59d6fa81.mockapi.io/tattooImg/?type=${urlArr}&p=${currentPage}&l=7`;
+
+    axios.get(url).then((resp) => {
+      const data = resp.data.map((item: any) => {
+        return item.url;
+      });
+      dispatch(setImgDataPage(data));
+      dispatch(setIsLoadingPage(true));
+    });
+  }, [currentPage, galleryActive]);
 
   return (
     <div className="modal" onClick={() => closeGallery()}>
@@ -35,8 +61,8 @@ export const ModalGallery: React.FC = () => {
           <div className="modal__nav">
             <WorksNav direction={'column'} />
           </div>
-          {isLoadingGallery ? (
-            pageImgData.map((item, i) => (
+          {isLoadingPage ? (
+            imgDataPage.map((item, i) => (
               <div className="modal__block" key={i}>
                 <img className="modal__img" src={item} alt="" />
               </div>
