@@ -6,8 +6,8 @@ import {
   setCurrentPage,
   setStepPage,
   setImgDataPage,
-  setIsLoadingGallery,
   setIsLoadingPage,
+  setIndexActivImg,
 } from '../../redux/gallerySlice';
 import { WorksNav } from '../WorksNav/WorksNav';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
@@ -15,15 +15,13 @@ import React from 'react';
 import axios from 'axios';
 
 export const ModalGallery: React.FC = () => {
-  // const imgData = useSelector((state: RootState) => state.gallery.imgData);
+  const dispatch = useDispatch();
+  const imgData = useSelector((state: RootState) => state.gallery.imgData);
   const currentPage = useSelector((state: RootState) => state.gallery.currentPage);
-  const isLoadingGallery = useSelector((state: RootState) => state.gallery.isLoadingGallery);
   const amountPage = useSelector((state: RootState) => state.gallery.amountPage);
   const galleryActive = useSelector((state: RootState) => state.gallery.galleryActive);
   const imgDataPage = useSelector((state: RootState) => state.gallery.imgDataPage);
   const isLoadingPage = useSelector((state: RootState) => state.gallery.isLoadingPage);
-
-  const dispatch = useDispatch();
 
   const closeGallery = () => {
     dispatch(setCloseGallery());
@@ -37,7 +35,12 @@ export const ModalGallery: React.FC = () => {
     dispatch(setStepPage(i));
   };
 
-  // const pageImgData = imgData.filter((_, i) => i < currentPage * 7 && i >= (currentPage - 1) * 7);
+  const clickImg = (url: string) => {
+    const activeIndex = imgData.findIndex((item) => item === url);
+    dispatch(setIndexActivImg(activeIndex));
+    //создать переменную в редаксе "нажато ли фото?"
+    //если переменная true, то рендерить новое модальное окно поверх всего остального, в котором будет галерея
+  };
 
   React.useEffect(() => {
     dispatch(setIsLoadingPage(false));
@@ -62,9 +65,16 @@ export const ModalGallery: React.FC = () => {
             <WorksNav direction={'column'} />
           </div>
           {isLoadingPage ? (
-            imgDataPage.map((item, i) => (
+            imgDataPage.map((url, i) => (
               <div className="modal__block" key={i}>
-                <img className="modal__img" src={item} alt="" />
+                <img
+                  className="modal__img"
+                  onClick={() => {
+                    clickImg(url);
+                  }}
+                  src={url}
+                  alt=""
+                />
               </div>
             ))
           ) : (

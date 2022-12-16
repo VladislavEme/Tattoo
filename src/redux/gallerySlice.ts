@@ -10,6 +10,7 @@ export interface GalleryState {
   isLoadingGallery: boolean;
   isLoadingPage: boolean;
   amountPage: number;
+  indexActivImg: number;
 }
 
 const initialState: GalleryState = {
@@ -21,6 +22,7 @@ const initialState: GalleryState = {
   isLoadingGallery: false,
   isLoadingPage: false,
   amountPage: 0,
+  indexActivImg: 0,
 };
 
 export const gallerySlice = createSlice({
@@ -66,6 +68,10 @@ export const gallerySlice = createSlice({
     setAmountPage: (state) => {
       state.amountPage = Math.ceil(state.imgData.length / 7);
     },
+
+    setIndexActivImg: (state, action: PayloadAction<number>) => {
+      state.indexActivImg = action.payload;
+    },
   },
 });
 
@@ -80,6 +86,7 @@ export const {
   setAmountPage,
   setImgDataPage,
   setIsLoadingPage,
+  setIndexActivImg,
 } = gallerySlice.actions;
 
 export default gallerySlice.reducer;
