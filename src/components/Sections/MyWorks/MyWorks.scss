@@ -76,7 +76,7 @@ a:hover {
   top: 32px;
   width: 360px;
   height: 60%;
-  border: 2px solid #000;
+  border: 2px solid rgba(0, 0, 0, 0.4);
   user-select: none;
   opacity: 0;
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out, opacity 0.2s ease-in-out;
@@ -88,7 +88,7 @@ a:hover {
   width: 320px;
   height: 480px;
   object-fit: cover;
-  border: 2px solid #000;
+  border: 2px solid rgba(0, 0, 0, 0.4);
   user-select: none;
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out, opacity 0.2s ease-in-out;
   animation: img-top 0.2s ease-in-out;
@@ -100,7 +100,7 @@ a:hover {
   width: 439px;
   height: 568px;
   object-fit: cover;
-  border: 2px solid #000;
+  border: 2px solid rgba(0, 0, 0, 0.4);
   user-select: none;
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
   animation: center-img 0.2s ease-in-out;
@@ -112,7 +112,7 @@ a:hover {
   width: 320px;
   height: 368px;
   object-fit: cover;
-  border: 2px solid #000;
+  border: 2px solid rgba(0, 0, 0, 0.4);
   user-select: none;
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out, opacity 0.2s ease-in-out;
   animation: img-top 0.2s ease-in-out;
