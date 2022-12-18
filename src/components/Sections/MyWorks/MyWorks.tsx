@@ -16,12 +16,14 @@ import {
 import { WorksNav } from '../../WorksNav/WorksNav';
 import axios from 'axios';
 import LoadingAnimation from '../../LoadingAnimation/LoadingAnimation';
+import { ModalImg } from '../../ModalGallery/ModalImg';
 
 export const MyWorks: React.FC = () => {
   const openGallery = useSelector((state: RootState) => state.gallery.openGallery);
   const galleryActive = useSelector((state: RootState) => state.gallery.galleryActive);
   const imgData = useSelector((state: RootState) => state.gallery.imgData);
   const isLoadingGallery = useSelector((state: RootState) => state.gallery.isLoadingGallery);
+  const openImg = useSelector((state: RootState) => state.gallery.openImg);
   const dispatch = useDispatch();
 
   const clickAllWorks = () => {
@@ -102,6 +104,7 @@ export const MyWorks: React.FC = () => {
           <Button clickButton={clickAllWorks} title={'Показать все'} />
         </div>
         {openGallery && <ModalGallery />}
+        {openImg && <ModalImg />}
       </div>
     </section>
   );

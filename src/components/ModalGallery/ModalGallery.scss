@@ -156,6 +156,45 @@
   opacity: 0;
 }
 
+.modal-img {
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    height: 906px;
+    width: 200px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #fff;
+
+    svg path {
+      transition: stroke 0.2s ease-in-out;
+    }
+
+    &:hover {
+      svg path {
+        stroke: #2235D1;
+      }
+    }
+  }
+
+  &__image {
+    width: 672px;
+    height: 906px;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  }
+}
+
+
+
 @keyframes opac {
   0% {
     opacity: 0

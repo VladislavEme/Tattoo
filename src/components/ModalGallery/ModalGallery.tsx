@@ -8,6 +8,7 @@ import {
   setImgDataPage,
   setIsLoadingPage,
   setIndexActivImg,
+  setOpenImg,
 } from '../../redux/gallerySlice';
 import { WorksNav } from '../WorksNav/WorksNav';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
@@ -38,8 +39,7 @@ export const ModalGallery: React.FC = () => {
   const clickImg = (url: string) => {
     const activeIndex = imgData.findIndex((item) => item === url);
     dispatch(setIndexActivImg(activeIndex));
-    //создать переменную в редаксе "нажато ли фото?"
-    //если переменная true, то рендерить новое модальное окно поверх всего остального, в котором будет галерея
+    dispatch(setOpenImg(true));
   };
 
   React.useEffect(() => {
