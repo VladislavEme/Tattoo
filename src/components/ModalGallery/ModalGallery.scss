@@ -160,14 +160,27 @@
   background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
 
+
+
   &__content {
+    position: relative;
+    left: -10px;
     display: flex;
     align-items: center;
+    position: relative;
+  }
+
+  &__current-img {
+    color: #2235D1;
+    font-size: 36px;
+    position: absolute;
+    bottom: -100px;
+    left: 47%;
   }
 
   &__button {
     height: 906px;
-    width: 200px;
+    width: 300px;
     cursor: pointer;
     background: none;
     border: none;
@@ -190,6 +203,13 @@
     object-fit: cover;
     border: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+
+
+
+    &:active {
+      // object-fit: none;
+      // overflow: visible
+    }
   }
 }
 
